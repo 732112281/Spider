@@ -1,20 +1,22 @@
-#coding:utf-8
+# coding:utf-8
 import requests, re, os
+from bs4 import BeautifulSoup
 from Chinese_to_Arabic import chinese_to_arabic
-#下载一个网页
+# 下载一个网页
 url = 'https://www.qu.la/book/101104/'
 
-# 模拟浏览器发送https请求
+#模拟浏览器发送https请求
 while True:
     try:
         response = requests.get(url)
         break
     except:
         continue
-# 编码方式
+
+#编码方式
 response.encoding = 'utf-8'
 
-# 目标小说主页的网页源码
+#目标小说主页的网页源码
 html = response.text
 
 # 小说的名称
